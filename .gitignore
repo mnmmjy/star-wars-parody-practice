@@ -1,0 +1,17 @@
+# node_modules はGit管理から除外（超重要）
+node_modules/
+
+# Viteビルドで生成されるファイル
+dist/
+
+# 環境変数ファイル（もし使う場合）
+.env
+.env.local
+.env.*.local
+
+# OS別やIDE別のキャッシュなど
+.DS_Store
+*.log
+*.tmp
+.vscode/
+

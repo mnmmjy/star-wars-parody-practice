@@ -1,0 +1,24 @@
+nodejsが入ってるか確認
+    node -v
+package.json を作成する
+    npm init -y
+Vite を導入（開発サーバー兼ビルドツール）
+    npm install vite
+次に、package.json にスクリプト追加：
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
+フォルダ構成を作る
+    mkdir public
+    touch index.html
+    mkdir src
+    touch src/main.js
+    touch style.css
+index.htmlたたき作成
+src/main.jsたたき作成
+style.cssたたき作成
+サーバー起動し、動くかテスト
+    npm run dev
