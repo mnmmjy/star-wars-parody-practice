@@ -22,3 +22,4 @@ src/main.jsたたき作成
 style.cssたたき作成
 サーバー起動し、動くかテスト
     npm run dev
+.gitignore作成
