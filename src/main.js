@@ -6,12 +6,12 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     form.style.display = 'none';
 
-    const title = document.getElementById('title').value;
-    const subtitle = document.getElementById('subtitle').value;
-    const body = document.getElementById('body').value;
+    const title = document.getElementById('title').value.trim();
+    const subtitle = document.getElementById('subtitle').value.trim();
+    const body = document.getElementById('body').value.trim();
 
-    const fullText = `${title}\n\n${subtitle}\n\n${body}`;
+    const formattedText = `${title}\n\n${subtitle}\n\n${body}`;
 
-    startScroll(fullText);
+    startScroll(formattedText);
 
 });
