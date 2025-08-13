@@ -56,7 +56,7 @@ textarea {
 
 .scroll-container {
     position: absolute;
-    bottom: 0;
+    bottom: 0%;
     left: 50%;
     transform: translateX(-50%);
     width: 90%; /* モバイルで少し幅を広げる */
@@ -84,16 +84,24 @@ textarea {
 
 @keyframes scroll {
     0% {
-        transform: translateX(-50%) rotateX(20deg) translateY(100%);
-        font-size: 2rem;
+        transform: translateX(-50%) rotateX(25deg) translateY(100%);
+        font-size: clamp(1.2rem, 4vm, 2.5rem);
+        opacity: 1;
     }
-    80% {
-        transform: translateX(-50%) rotateX(20deg) translateY(-50%);
-        font-size: 1rem;
+    15% {
+        transform: translateX(-50%) rotateX(25deg) translateY(0%);
+        font-size: clamp(1.5rem, 4vm, 2.5rem);
+        opacity: 1;
+    }
+    85% {
+        transform: translateX(-50%) rotateX(25deg) translateY(-80%);
+        font-size: clamp(0.8rem, 2vm, 1.2rem);
+        opacity: 0.5;
     }
     100% {
-        transform: translateX(-50%) rotateX(20deg) translateY(-200%);
-        font-size: 0.5rem;
+        transform: translateX(-50%) rotateX(25deg) translateY(-170%);
+        font-size: clamp(0.6rem, 1vm, 0.8rem);
+        opacity: 0;
     }
 }
 

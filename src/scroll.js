@@ -17,9 +17,22 @@ export function startScroll(text) {
     scrollContainer.style.writingMode = 'horizontal-tb';
     scrollContainer.style.direction = 'ltr';
 
+    // テキスト長に応じてアニメーション時間を調整
+    const textLength = formattedText.textLength;
+    const baseTime = 30; // 基本時間(秒)
+    const timePerChar = 0.08 // 追加時間
+    const animationDuration = Math.max(baseTime, textLength * timePerChar);
+
+    scrollContainer.style.animationDuration = `${animationDuration}s`
+
     // ネストさせる
     scrollWrapper.appendChild(scrollContainer);
     document.body.appendChild(scrollWrapper);
+
+    // アニメーション終了後の処理
+    scrollContainer.addEventListener('animationend', () => {
+        showEndOptions(scrollWrapper, text);
+    });
 
     // chromeはあとから発火させないと
     // アニメーションが動かない。
@@ -27,4 +40,36 @@ export function startScroll(text) {
     requestAnimationFrame(() => {
         scrollContainer.classList.add('animate');
     });
+}
+
+function showEndOptions(scrollWrapper, originalText) {
+    //既存のスクロール要素を非表示
+    scrollWrapper.style.display = 'none';
+
+    // 選択画面を作成
+    const optionWrapper = document.createElement('div');
+    optionWrapper.className = 'end-options';
+
+    const optionContainer = document.createElement('div');
+    optionContainer.className = 'end-option-container';
+
+    const tittle = document.createElement('h2');
+    tittle.textContent = 'fin'
+    tittle.className = 'end-tittle';
+
+    const replayButton = document.createElement('button');
+    replayButton.textContent = 'もう一度再生';
+    replayButton.className = 'end-button replay-button';
+    
+    const newButton = document.createElement('button');
+    newButton.textContent = '新しいテキストを入力';
+    newButton.className = 'end-button new-button';
+    
+    // ボタンのイベントリスナー
+    replayButton.addEventListener('click', () => {
+        document.body.removeChild(optionWrapper);
+        document.body.remo
+        
+    }
+    );
 }
